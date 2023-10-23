@@ -3,6 +3,8 @@
   "version": "1.0.0",
   "description": "This project consist of react code to build complex industry standard project ",
   "scripts": {
+    "start": "parcel index.html",
+    "build": "parcel build index.html",
     "test": "jest"
   },
   "repository": {
@@ -21,6 +23,7 @@
     "react-dom": "^18.2.0"
   },
   "devDependencies": {
+    "parcel": "^2.10.0",
     "process": "^0.11.10"
   },
   "browserlist": [
