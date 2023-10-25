@@ -4,3 +4,51 @@
 .head{
     color: green;
 }
+.header{
+    display: flex;
+    justify-content: space-between;
+    border: 1px solid black;
+}
+.logo{ 
+    width: 120px;
+    margin-left: 20px;
+}
+.logoImg{
+    width: 120px;
+    margin-left: 20px;
+}
+.nav-items > ul{
+    display: flex;
+    margin-right: 100px;
+}
+.nav-items > ul >li{
+    padding: 10px;
+    margin: 10px;
+}
+.search{
+    padding: 10px;
+}
+.res-cards{
+    padding: 8px;
+    border-radius: 5px;
+    margin: 10px;
+    border: 1px solid black;
+    background: #f0f0f0;
+    :hover{
+        cursor: pointer;
+        background:rgb(44, 119, 155);
+    }
+}
+.res-img-logo{
+    width: 220px;
+    height: 153px;
+}
+.bodyContainer{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.filter-btn{
+    margin: 10px;
+    cursor: pointer;
+}
