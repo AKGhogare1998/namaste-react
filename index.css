@@ -70,3 +70,8 @@
 .login-btn{
     cursor: pointer;
 }
+.user-card{
+    border: 2px solid black;
+    display: flex;
+    justify-content: center;
+}
