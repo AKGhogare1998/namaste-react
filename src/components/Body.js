@@ -1,38 +1,39 @@
 import CardComponent from "./Card";
 import ShimmerComponent from "./Shimmer";
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
 const resInfo =[{
     name: "Abdullah",
-    id: "1",
+    id: "327891",
     cuisine: "Indian",
     rating: "4",
     time: "39min",
     src: "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/3b07757650e9c4c993d4d11b95b0c1e8"
  },{
     name: "Eagle",
-    id: "2",
+    id: "399557",
     cuisine: "Indian",
     rating: "3",
     time: "39min",
     src: "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/idhe5oatspiwd2odxt8w"
 },{
     name: "Parvati",
-    id: "3",
+    id: "576808",
     cuisine: "Indian",
     rating: "2",
     time: "39min",
     src: "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/69a061b7e0f951cef2b4947946f94ec6"
  },{
     name: "Punjabi",
-    id: "4",
+    id: "622095",
     cuisine: "Indian",
     rating: "4.5",
     time: "39min",
     src: "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/8f79be1ffba3dec81991b65fcf0ef99b"
  },{
     name: "Khana Khajana",
-    id: "5",
+    id: "382576",
     cuisine: "Indian",
     rating: "4.3",
     time: "39min",
@@ -41,35 +42,35 @@ const resInfo =[{
 
 const resInfoUpdated =[{
     name: "Abdullah",
-    id: "1",
+    id: "327891",
     cuisine: "Indian",
     rating: "43333",
     time: "39min",
     src: "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/3b07757650e9c4c993d4d11b95b0c1e8"
  },{
     name: "Eagle",
-    id: "2",
+    id: "399557",
     cuisine: "Indian",
     rating: "33333",
     time: "39min",
     src: "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/idhe5oatspiwd2odxt8w"
 },{
     name: "Parvati",
-    id: "3",
+    id: "576808",
     cuisine: "Indian",
     rating: "23333",
     time: "39min",
     src: "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/69a061b7e0f951cef2b4947946f94ec6"
  },{
     name: "Punjabi",
-    id: "4",
+    id: "622095",
     cuisine: "Indian",
     rating: "4.53333",
     time: "39min",
     src: "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/8f79be1ffba3dec81991b65fcf0ef99b"
  },{
     name: "Khana Khajana",
-    id: "5",
+    id: "382576",
     cuisine: "Indian",
     rating: "4.33333",
     time: "39min",
@@ -116,7 +117,7 @@ const BodyComponent = () =>{
        }}>Top rated restaurent</button>
         </div>
         <div className="bodyContainer">
-          {filterListOfRestaurent.map((restaurent) => <CardComponent key={restaurent.id} resInfo={restaurent}/>)}
+          {filterListOfRestaurent.map((restaurent) => <Link key={restaurent.id} to={'/menu/'+restaurent.id}><CardComponent  resInfo={restaurent}/></Link>)}
         </div>
     </div>
 }

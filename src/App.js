@@ -4,8 +4,10 @@ import HeaderComponent from "./components/Header";
 import BodyComponent from "./components/Body";
 import ContactComponent from "./components/Contact";
 import ErrorComponent from "./components/Error";
+import MenuComponent from "./components/Menu";
 import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
 import About from "./components/About";
+import MenuComponent from "./components/Menu";
 
 const AppComponent = () =>{
     console.log("app component")
@@ -31,6 +33,10 @@ const appRouter = createBrowserRouter([
             {
                 path: "/contact",
                 element: <ContactComponent />
+            },
+            {
+                path: "/menu/:resId",
+                element: <MenuComponent />
             }
         ],
         errorElement: <ErrorComponent />
