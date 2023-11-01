@@ -1,20 +1,13 @@
-import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import useRestaurentMenu from "../utils/useRestaurentMenu";
+import ShimmerComponent from "./Shimmer";
 
 const MenuComponent =  () =>{
-    const [menuInfo,setMenuInfo] = useState(null);
     const { resId } = useParams();
-    console.log(resId)
-    useEffect(()=>{
-        fetchMenu();
-    },[])
-    const fetchMenu = async() =>{
-    const data = await fetch(`https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=18.6297811&lng=73.7997094&restaurantId=${resId}&catalog_qa=undefined&submitAction=ENTER`);
-    const json = await data.json();
-    console.log(json?.data?.cards[0]?.card?.card?.info)
-    setMenuInfo(json?.data?.cards[0]?.card?.card?.info);
-    }
-
+    //All JS operation useState , UseEffect will be done inside useRestaurentMenu hook 
+    const menuInfo = useRestaurentMenu(resId);
+  console.log("menuInfo",menuInfo)
+  if(menuInfo === null){return <ShimmerComponent />}
     return <div>
         <h1>Name of restaurent</h1>
         <h1>{menuInfo?.name}</h1>

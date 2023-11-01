@@ -1,3 +1,4 @@
+import useOnlineStatus from "../utils/useOnlineStatus";
 import CardComponent from "./Card";
 import ShimmerComponent from "./Shimmer";
 import { useState, useEffect } from "react";
@@ -81,7 +82,8 @@ const BodyComponent = () =>{
     const [listOfRestaurent,setListOfRestaurent]  = useState([]);
     const [filterListOfRestaurent,setFilterListOfRestaurent]  = useState([]);
     const [searchText,setSearchText] = useState([]);
-    console.log("body component")
+    const isOnilne = useOnlineStatus();
+    console.log("body component is online",isOnilne);
     useEffect(()=>{
         fetchData();
     },[])
@@ -93,7 +95,7 @@ const BodyComponent = () =>{
         setListOfRestaurent(resInfoUpdated);
         setFilterListOfRestaurent(resInfoUpdated)
     }
-     
+    if(isOnilne === false){ return <h1>Looks like you are offline please check internet</h1>}
 
     return <div className="body">
         <div className="search"> 

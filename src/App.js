@@ -1,4 +1,4 @@
-import React from "react";
+import React, { lazy, Suspense } from "react";
 import ReactDOM  from "react-dom/client";
 import HeaderComponent from "./components/Header";
 import BodyComponent from "./components/Body";
@@ -8,6 +8,7 @@ import MenuComponent from "./components/Menu";
 import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
 import About from "./components/About";
 import MenuComponent from "./components/Menu";
+import GroceryComponent from "./components/Grocery";
 
 const AppComponent = () =>{
     console.log("app component")
@@ -16,6 +17,13 @@ const AppComponent = () =>{
         <Outlet />
     </div>
 }
+
+//Lazy loading concept is implemented for grocery component
+//It is also known as onDemand loading , code splitting, chucking
+
+const Grocery = lazy(() =>{
+  import("./components/Grocery")
+});
 
 const appRouter = createBrowserRouter([
     {
@@ -33,6 +41,11 @@ const appRouter = createBrowserRouter([
             {
                 path: "/contact",
                 element: <ContactComponent />
+            },
+            {
+                path: "/grocery",
+                //element: (<Suspense fallback={<h1>Grocery component not loading , suspence work</h1>}><Grocery /></Suspense>)
+                element: <GroceryComponent />
             },
             {
                 path: "/menu/:resId",
