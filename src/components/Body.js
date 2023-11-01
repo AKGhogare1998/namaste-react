@@ -97,28 +97,29 @@ const BodyComponent = () =>{
     }
     if(isOnilne === false){ return <h1>Looks like you are offline please check internet</h1>}
 
-    return <div className="body">
+    return <div className=" p-4 m-4">
         <div className="search"> 
-        <input className="filter-btn" type="text" value={searchText} onChange={(e)=>{
+        <input className="m-2 p-2 border-solid border black" type="text" value={searchText} onChange={(e)=>{
             setSearchText(e.target.value);
             console.log("text search",e.target.value)
             setFilterListOfRestaurent(resInfo.filter((ele)=>{
                 return ele.name.toLowerCase().includes(searchText);
             }));
+            if(!e.target.value){ setFilterListOfRestaurent(resInfo)}
             }}/>
-        <button className="filter-btn" onClick={()=>{
+        <button className=" bg-sky-200 rounded px-4 mx-4 transition ease-in-out delay-150 bg-blue-500 hover:-translate-y-1 hover:scale-110 hover:bg-indigo-500 duration-300 ..." onClick={()=>{
             //filter the restaurent card and update the UI
             setFilterListOfRestaurent(resInfo.filter((ele)=>{
                 return ele.name.includes(searchText);
             }))
         }}>Search Button</button>
-        <button className="filter-btn" onClick={()=>{
+        <button className="bg-sky-200 rounded px-4 mx-4" onClick={()=>{
             setListOfRestaurent(resInfo.filter((ele)=>{
                 return ele.rating > 4;
             }))
        }}>Top rated restaurent</button>
         </div>
-        <div className="bodyContainer">
+        <div className="flex-wrap flex">
           {filterListOfRestaurent.map((restaurent) => <Link key={restaurent.id} to={'/menu/'+restaurent.id}><CardComponent  resInfo={restaurent}/></Link>)}
         </div>
     </div>

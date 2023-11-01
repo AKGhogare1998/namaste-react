@@ -1,13 +1,13 @@
 const CardComponent = (props) =>{
     const {name,cuisine,time,rating,src} = props?.resInfo;
-    return <div className="res-cards">
+    return <div className="m-4 p-4 rounded-xl bg-yellow-200 hover:shadow-xl hover:bg-sky-200">
         <div className="res-img">
-            <img className="res-img-logo" src={src}></img>
+            <img className="w-40 h-40" src={src}></img>
         </div>
-        <div className="res-name">{name}</div>
-        <div className="res-cuisine">{cuisine}</div>
-        <div className="res-time">{time}</div>
-        <div className="star">{rating} star</div>
+        <div className="bold text-lg">{name}</div>
+        <div className="bold">{cuisine}</div>
+        <div className="bold">{time}</div>
+        <div className="bold">{rating} star</div>
     </div>
 }
 
